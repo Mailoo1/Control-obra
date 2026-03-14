@@ -1,15 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Formulario from './src/Components/Formulario';
+import AppNavigator from './navigation/AppNavigator';
+import AppProvider from './navigation/AppProvider';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>This is home the app!</Text>
-      <Formulario />
-      <StatusBar style="auto" />
-    </View>
-  );
+    <AppProvider>
+      <NavigationContainer>
+        <AppNavigator/>
+        <StatusBar/>
+      </NavigationContainer>
+    </AppProvider>  
+  )
 }
 
 const styles = StyleSheet.create({
